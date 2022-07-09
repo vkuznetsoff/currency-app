@@ -2,6 +2,43 @@ import "./styles.css"
 
 const apiKey = "d18ezMeDAF4oR8sVTiOZzWZIMfVAt2SadfJmDyxn"
 const geoApiKey = "16c29522b5e1d3434c4018b75148e61c"
+let currencyList 
+
+window.addEventListener('load', () => {
+
+   getCurrencyList().then(data => currencyList = Object.keys(data) )
+   .then( () =>  setSelect(currencyList) )
+   
+})
+
+
+function setSelect(values) {
+    const selects = document.querySelectorAll('select')
+    console.log(selects) 
+
+    selects.forEach( select => {
+        for (const el of currencyList) {
+            const option = document.createElement('option')
+            option.value = el;
+            option.innerHTML = el;
+                select.appendChild(option);
+         }
+    })
+ 
+
+//     var min = 12,
+//     max = 100,
+//     select = document.getElementById('selectElementId');
+
+// for (var i = min; i<=max; i++){
+//     var opt = document.createElement('option');
+//     opt.value = i;
+//     opt.innerHTML = i;
+//     select.appendChild(opt);
+// }
+
+//     selects.forEach(s => s.)
+}
 
 function getCurrencyList() {
     return fetch('https://api.currencyapi.com/v3/currencies', {
@@ -10,7 +47,7 @@ function getCurrencyList() {
         }
     })
     .then( response => response.json())
-    .then(response => response.data)
+    .then(response => (response.data))
 }
 
 function getGeolocation() {
@@ -27,10 +64,11 @@ function getCountry(lat, lon) {
         `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${geoApiKey}`
     )
     .then(response => response.json())
-    .then(data => console.log(data))
+    .then(data => console.log(data[0].country))
 }
 
-getGeolocation()
+// getGeolocation()
+// getCurrencyList()
 
 
 

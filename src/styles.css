@@ -5,3 +5,17 @@
    text-align: center;
    padding: auto 20px;
 }
+
+.row {
+   display: flex;
+   justify-content: center;
+}
+
+.column {
+   padding: 10px;
+}
+
+select {
+   width: 100px;
+   height: 30px
+}
