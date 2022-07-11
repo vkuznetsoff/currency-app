@@ -1,47 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Currency Converter</title>
-</head>
-<body>
-   <header class="header">
-       Currency Converter
+  </head>
+  <body>
+    <header class="header">
+      <div>Currency Converter</div>
     </header>
+
     <div class="content">
+
       <div class="row">
         <div class="column">
-            <div class="column__header">
-                From currency
-            </div>
-            <div class="column__cur">
-                <select name="from_currency">
-                    <!-- <option value="1">1</option>
-                    <option value="2">2</option> -->
-                </select>
-
-                <input type="text" name="from_input" id="from_input"/>
-              
-            </div>
+          <div class="column__title">Количество</div>
+          <div class="column__block">
+            <input type="text" name="from_input" id="from_input" />
+          </div>
         </div>
-        <div class="column">
-            <div class="column__header">
-                To currency
-            </div>
-            <div class="column__cur">
-                <select name="to_currency">
-                    <!-- <option value="1">1</option>
-                    <option value="2">2</option> -->
-                </select>
 
-                <input type="text" name="to_input" id="to_input"/>
-            </div>
+        <div class="column">
+          <div class="column__title">Базовая валюта</div>
+          <div class="column__block">
+            <select name="from_currency"></select>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="column__title">Валюта</div>
+          <div class="column__block">
+            <select name="to_currency"></select>
+          </div>
         </div>
       </div>
-
+      
+      <div class="row ">
+        <div class="result">
+            <div class="result_title">Результат:</div>
+            <div class="result__block">
+                <div id="to_input"></div>
+                <div class="date" id="date"></div>
+            </div>
+          </div>
+          </div>
+      </div>
     </div>
-</body>
+
+    <footer class="footer">&copy; 2022 год</footer>
+  </body>
 </html>
