@@ -54,7 +54,6 @@ function renderResult() {
 }
 window.addEventListener("load", () => {
   initApp();
-  //   setSelect(selects, currencyList);
   fromInput.value = "1.00";
 });
 
@@ -62,7 +61,6 @@ async function initApp() {
   //Получить список валют
   const data = await getCurrencyList();
   currencyList = Object.entries(data);
-  console.log(currencyList);
 
   //Заполнить SELECT
   setSelect(selects, currencyList);
@@ -79,15 +77,12 @@ async function initApp() {
     position.latitude,
     position.longitude
   );
-  console.log(countryCode);
 
   //По коду страны определить код валюты
   const currCode = await getCurrencyCodeByCountry(countryCode);
-  console.log(currCode);
 
   //По коду валюты определить название валюты
   const currStrCode = await getCurrencyStrByCode(currCode);
-  console.log(currStrCode);
 
   //Выбрать валюту по умолчанию(местоположение)
   exchangeParams.from = currStrCode;
